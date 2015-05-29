@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing',
-    'import_export',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -112,6 +111,6 @@ try:
     LOCAL_SETTINGS
 except NameError:
     try:
-        from local_settings import *
+        from trustland.local_settings import *
     except ImportError:
         pass
