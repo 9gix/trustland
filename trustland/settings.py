@@ -24,7 +24,7 @@ PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
 SECRET_KEY = 'f=&enpc(t3q1)30bv8b@ktf-wik%_e_5&3b8ohhq)5$+&+vnq*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
