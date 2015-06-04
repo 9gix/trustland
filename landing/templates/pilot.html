@@ -1,10 +1,10 @@
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
@@ -21,82 +21,61 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
-
     <link href="{% static 'css/landing.css' %}" rel="stylesheet">
   </head>
-<!-- NAVBAR
-================================================== -->
   <body>
-   
-
-
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="register" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <!--<ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>-->
-      <div class="carousel-inner" role="listbox" style="background-color: #f8f8f8">
-        <div class="item active">
-          <img class="first-slide" src="{% static 'images/bg.png' %}">
-          <div class="container">
-            <div class="carousel-caption">
-              {% if messages %}
-                {% for message in messages %}
-                  <li {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissable" {% endif %}>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    {{ message }}
-                  </li>
-                {% endfor %}
-              {% endif %}
+    {% if messages %}
+      {% for message in messages %}
+        <li {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissable" {% endif %}>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          {{ message }}
+        </li>
+      {% endfor %}
+    {% endif %} 
+    <section class="banner">
+      <div class="container">
+        <div class="col-xs-offset-4">
+          <div class="row">
+            <div class='col-xs-8'>
               <h1>A New Way to Pay</h1>
               <p>Come experience the potential of TRUST. You'll be tempted to say goodbye to your old wallet.</p>
-			  <div class='col-md-6 col-md-offset-2'>
-              <form action='' method='POST' class="form-inline">{% csrf_token %}
-				  <div class="input-group">
-					  <span class="input-group-btn">
-						  <button class="btn btn-lg btn-primary" href="#" role="button">Sign up today</button>
-					  </span>
-					  <input class="input" id="id_email" type="email" name="email" placeholder= "Enter email to receive updates" maxlength="254" />
-				  </div>
+              <form action='' method='POST'>{% csrf_token %}
+                <div class="form-group">
+                  <div class="input-group">
+                    <input class="form-control input-lg" id="id_email" type="email" name="email" placeholder= "Enter email to receive updates" maxlength="254" />
+                    <span class="input-group-btn">
+                      <button class="btn btn-lg btn-primary" href="#" role="button">Sign up today</button>
+                    </span>
+                  </div>
+                </div>
               </form>
-			  </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing" id="about">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="{% static 'images/merchant.png' %}" width="140" height="140">
-          <h2>For Merchants</h2>
-          <p>We believe that your money should be yours to keep. Enjoy cost savings and greater revenue by giving up less in transaction fees when you accept payments via Tembusu Wallet.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="{% static 'images/customer.png' %}" width="140" height="140">
-          <h2>For Consumers</h2>
-          <p>We understand the frustrations of having to go through many steps to get what you want. Check out instantly using Tembusu Wallet to enjoy faster shopping both online and offline.</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="{% static 'images/teller.png' %}" width="140" height="140">
-          <h2>For Tellers</h2>
-          <p>We believe that there are never too many reasons for customers to visit your store. Benefit from increased foot flow and in-store traffic when you help us to provide top up services for Tembusu Wallet.</p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-    </div><!-- /.container -->
+    <section class="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <img class="img-circle" src="{% static 'images/merchant.png' %}" width="140" height="140">
+            <h2>For Merchants</h2>
+            <p>We believe that your money should be yours to keep. Enjoy cost savings and greater revenue by giving up less in transaction fees when you accept payments via Tembusu Wallet.</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-xs-4">
+            <img class="img-circle" src="{% static 'images/customer.png' %}" width="140" height="140">
+            <h2>For Consumers</h2>
+            <p>We understand the frustrations of having to go through many steps to get what you want. Check out instantly using Tembusu Wallet to enjoy faster shopping both online and offline.</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-xs-4">
+            <img class="img-circle" src="{% static 'images/teller.png' %}" width="140" height="140">
+            <h2>For Tellers</h2>
+            <p>We believe that there are never too many reasons for customers to visit your store. Benefit from increased foot flow and in-store traffic when you help us to provide top up services for Tembusu Wallet.</p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+      </div>
+    </section>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -108,6 +87,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 
-	<script src="{% static 'js/landing.js' %}"></script>
+    <script src="{% static 'js/landing.js' %}"></script>
   </body>
 </html>
